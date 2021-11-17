@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">WEEK 5 - unit_and_instrumentaion_tests</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="registration_details">Here are your Registration Details:</string>
+    <string name="registration_form">Registration Form</string>
+
+    <string-array name="gender">
+        <item>male</item>
+        <item>female</item>
+    </string-array>
+</resources>
