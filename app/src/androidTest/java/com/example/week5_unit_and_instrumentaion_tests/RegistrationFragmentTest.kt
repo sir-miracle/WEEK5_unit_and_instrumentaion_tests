@@ -25,6 +25,14 @@ class RegistrationFragmentTest{
 
         onView(withId(R.id.registration_form_root)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
 
+        onView(withId(R.id.registration_form)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(withId(R.id.name)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(withId(R.id.email)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(withId(R.id.phone_number)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(withId(R.id.gender)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(withId(R.id.gender_options)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(withId(R.id.register_button)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+
 
     }
 }

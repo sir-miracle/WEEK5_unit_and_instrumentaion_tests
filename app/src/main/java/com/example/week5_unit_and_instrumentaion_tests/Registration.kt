@@ -31,23 +31,17 @@ private lateinit var communicator: Communicator
 
         fun registrationValidation(name: Editable, email: Editable, phoneNumber: Editable, sex: String):Boolean{
 
-
-
-//            if(name.isEmpty()|| email.isEmpty()||phoneNumber.isEmpty()|| sex.isEmpty()){
-//
-//                return false
-//            }
-            if(name.isEmpty()){
+            if(name!!.trim().isEmpty()){
                 inputName.error="Your name is not valid"
                 return false
             }
 
-            if(email.isEmpty()){
+            if(email!!.trim().isEmpty()){
                 inputEmail.error= "Your Email is not valid"
                 return false
             }
 
-            if(phoneNumber.isEmpty()){
+            if(phoneNumber!!.trim().isEmpty()){
                 inputNum.error= "Your phone number is not valid"
                 return false
             }
@@ -61,8 +55,6 @@ private lateinit var communicator: Communicator
                 return false
             }
 
-
-
             if(!phoneNumber.isDigitsOnly()){
                 inputNum.error = "Your phone number is not valid"
 
@@ -74,8 +66,6 @@ private lateinit var communicator: Communicator
                 inputNum.error = "Your phone number is not valid"
                 return false
             }
-
-
 
             if(phoneNumber.startsWith("0")&& phoneNumber.length!=11){
 
@@ -97,12 +87,13 @@ private lateinit var communicator: Communicator
 
 
         var spinnerResult: String = ""
-
+        //creating array which the spinner view is going to work with
         val sex = arrayOf("male","female")
         val options = view.findViewById<Spinner>(R.id.gender_options)
         options.adapter = ArrayAdapter(requireActivity(), android.R.layout.simple_spinner_dropdown_item, sex) as SpinnerAdapter?
 
         options.onItemSelectedListener = object :  AdapterView.OnItemSelectedListener {
+
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long){
                 spinnerResult = parent?.getItemAtPosition(position).toString()
                 //Toast.makeText(context,"you selected ${parent?.getItemAtPosition(position).toString()}", Toast.LENGTH_SHORT).show()
@@ -114,9 +105,6 @@ private lateinit var communicator: Communicator
 
         }
 
-
-        //val inputSex = view.findViewById<Spinner>(R.id.gender_options)
-
         if(activity is MainActivity){
             communicator = activity as MainActivity
         }
@@ -124,7 +112,8 @@ private lateinit var communicator: Communicator
 
         val sendBtn = view.findViewById<Button>(R.id.register_button)
 
-
+        // In the button click listener, I initialized the function variables to the outputs of the
+        // edit text views
         sendBtn.setOnClickListener {
             if(registrationValidation(
                     name = inputName.text,

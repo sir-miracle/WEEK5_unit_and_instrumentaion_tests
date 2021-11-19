@@ -10,33 +10,29 @@ import android.widget.TextView
 
 
 class RegistrationInformation : Fragment() {
-    var displayMessage: String? = ""
+    private lateinit var displayMessage: String
     var displayMessage1: String? = ""
     var displayMessage2: String? = ""
     var displayMessage3: String? = ""
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view =inflater.inflate(R.layout.fragment_registration_information, container, false)
 
-        var outputName = view.findViewById<TextView>(R.id.the_name)
-        var outputEmail = view.findViewById<TextView>(R.id.the_email)
+        val outputName = view.findViewById<TextView>(R.id.the_name)
+        val outputEmail = view.findViewById<TextView>(R.id.the_email)
         var outputNUmber = view.findViewById<TextView>(R.id.the_number)
        var outputSex = view.findViewById<TextView>(R.id.the_gender)
 
-        displayMessage = arguments?.getString("key")
+        displayMessage = arguments?.getString("key").toString()
         displayMessage1 = arguments?.getString("key1")
         displayMessage2 = arguments?.getString("key2")
         displayMessage3 = arguments?.getString("key3")
 
-        outputName.text = displayMessage
-        outputEmail.text = displayMessage1
-        outputNUmber.text = displayMessage2
+        outputName.text = displayMessage.trim()  //trimming will remove spaces in front of or after
+        outputEmail.text = displayMessage1!!.trim() //the texts
+        outputNUmber.text = displayMessage2!!.trim()
         outputSex.text = displayMessage3
 
         return view

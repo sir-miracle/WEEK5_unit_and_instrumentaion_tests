@@ -28,8 +28,8 @@ class MainActivityTest{
         //val activityScenario = ActivityScenario.launch(MainActivity::class.java) //launches the activity
         //onView(withId(R.id.main_activity)).check(matches(isDisplayed()))  // checks if the activity is  correctly in view (displayed)
 
-        Espresso.onView(ViewMatchers.withId(R.id.main_activity))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(withId(R.id.main_activity))
+            .check(ViewAssertions.matches(isDisplayed()))
     }
 
     @Test
@@ -37,7 +37,7 @@ class MainActivityTest{
         val activityScenario = ActivityScenario.launch(MainActivity::class.java) //launches the activity
 
         Espresso.onView(ViewMatchers.withId(R.id.buttom_nav_bar))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed())) // Tests if the bottom navigation bar is visible
+            .check(ViewAssertions.matches(isDisplayed())) // Tests if the bottom navigation bar is visible
     }
 
     @Test
@@ -45,7 +45,7 @@ class MainActivityTest{
         val activityScenario = ActivityScenario.launch(MainActivity::class.java) //launches the activity
 
         Espresso.onView(ViewMatchers.withId(R.id.registration))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed())) //Tests if the registration button on the nav bar is visible
+            .check(ViewAssertions.matches(isDisplayed())) //Tests if the registration button on the nav bar is visible
     }
 
     @Test
@@ -53,7 +53,7 @@ class MainActivityTest{
         val activityScenario = ActivityScenario.launch(MainActivity::class.java) //launches the activity
 
         Espresso.onView(ViewMatchers.withId(R.id.account_details))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed())) //Tests if the details  button on the nav bar is visible
+            .check(ViewAssertions.matches(isDisplayed())) //Tests if the details  button on the nav bar is visible
     }
 
     @Test
@@ -61,7 +61,7 @@ class MainActivityTest{
         val activityScenario = ActivityScenario.launch(MainActivity::class.java) //launches the activity
 
         Espresso.onView(ViewMatchers.withId(R.id.my_fragment_container))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))  //Tests if the frame layout in the main activity is visible
+            .check(ViewAssertions.matches(isDisplayed()))  //Tests if the frame layout in the main activity is visible
     }
 }
 

@@ -38,7 +38,8 @@ class MainActivity : AppCompatActivity(), Communicator{
         }
 
     }
-
+        // Overriding the function created in the Communicator interface, and using bundle to assign
+        //what it is going to transfer to the other fragment using keys
     override fun passData(name: String, email: String, number: String, sex: String) {
         val bundle = Bundle()
         bundle.putString("key",name)
